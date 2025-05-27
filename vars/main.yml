@@ -1,4 +1,4 @@
 intersight_host: "{{ ansible_host }}"
 intersight_user: "{{ ansible_user }}"
-intersight_token: "{{ ansible_ssh_pass }}"
-intersight_privatekey: "{{ ansible_ssh_pass }}"
+intersight_apikeyid: "{{ ansible_ssh_pass }}"
+intersight_privatekey: "{{ intersight_privatekey }}"
