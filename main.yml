@@ -7,6 +7,12 @@
   vars_files: main.yml
   tasks:
 
+    - debug:
+        var: intersight_apikeyid
+
+    - debug:
+        var: intersight_privatekey
+
     - name: Get info for all servers
       cisco.intersight.intersight_info:
         api_private_key: "{{ intersight_privatekey }}"
