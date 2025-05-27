@@ -1,5 +1,5 @@
 intersight_host: "{{ ansible_host }}"
 intersight_user: "{{ ansible_user }}"
 #intersight_apikeyid: "{{ ansible_ssh_pass }}"
-intersight_apikeyid: "{{ cisco_intersight_apikeyid }}"
+intersight_apikeyid: "{{ intersight_apikeyid }}"
 intersight_privatekey: "{{ intersight_privatekey }}"
