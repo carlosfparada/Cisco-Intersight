@@ -7,14 +7,14 @@
   #vars_files: main.yml
   tasks:
 
-- name: Get info for all servers
-  cisco.intersight.intersight_info:
-    api_private_key: ~/Downloads/SecretKey.txt
-    api_key_id: 64612d300d0982/64612d300d0b00/64612d300d3650
-    server_names:
-    
-- name: Debug intersight_servers
-  ansible.builtin.debug:
-    msg: "server name {{ item.Name }}, moid {{ item.Moid }}"
-  loop: "{{ intersight_servers }}"
-  when: intersight_servers is defined
+    - name: Get info for all servers
+      cisco.intersight.intersight_info:
+        api_private_key: ~/Downloads/SecretKey.txt
+        api_key_id: 64612d300d0982/64612d300d0b00/64612d300d3650
+        server_names:
+        
+    - name: Debug intersight_servers
+      ansible.builtin.debug:
+        msg: "server name {{ item.Name }}, moid {{ item.Moid }}"
+      loop: "{{ intersight_servers }}"
+      when: intersight_servers is defined
