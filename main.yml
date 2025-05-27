@@ -1,0 +1,18 @@
+---
+
+- name: Cisco Intersight
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  #vars_files: main.yml
+  tasks:
+
+- name: Get info for all servers
+  intersight_info:
+    api_private_key: ~/Downloads/SecretKey.txt
+    api_key_id: 64612d300d0982/64612d300d0b00/64612d300d3650
+    server_names:
+- debug:
+    msg: "server name {{ item.Name }}, moid {{ item.Moid }}"
+  loop: "{{ intersight_servers }}"
+  when: intersight_servers is defined
