@@ -29,7 +29,7 @@
         description: local-user-policy-1
         local_users:
           - username: guest
-            role: user
+            role: readonly
             password: vault_guest_password
           - username: reader
             role: readonly
