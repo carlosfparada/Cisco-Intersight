@@ -7,6 +7,9 @@
   vars_files: main.yml
   tasks:
 
+
+  ## SERVERS
+
     - name: Get info for all servers
       cisco.intersight.intersight_info:
         api_uri: "{{ intersight_endpoint }}"
@@ -20,18 +23,37 @@
       loop: "{{ intersight_servers }}"
       when: intersight_servers is defined
 
+
+  ## POLICIES
+
     - name: Configure Local User Policy
       cisco.intersight.intersight_local_user_policy:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: local-user-policy
-        description: local-user-policy
+        description: Local User Policy
         local_users:
           - username: user1
             role: readonly
             password: password
         state: present
+
+    - name: Configure BIOS Policy
+      cisco.intersight.intersight_bios_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: bios-policy
+        description: BIOS Policy        
+        processor_cstate: enabled
+        cdn_enable: enabled
+        cpu_energy_performance: performance
+        direct_cache_access: enabled
+        state: absent
+
+
+  ## PROFILES
 
     - name: Configure Server Profile
       cisco.intersight.intersight_server_profile:
@@ -49,3 +71,24 @@
         # ntp_policy: lab-ntp
         # storage_policy: storage
         # virtual_media_policy: COS-VM
+
+
+
+  ## DELETE
+
+    # - name: Delete Local User Policy
+    #   cisco.intersight.intersight_local_user_policy:
+    #     api_uri: "{{ intersight_endpoint }}"
+    #     api_private_key: "{{ intersight_privatekey }}"
+    #     api_key_id: "{{ intersight_apikeyid }}"
+    #     name: local-user-policy
+    #     state: absent
+
+    # - name: Delete BIOS Policy
+    #   cisco.intersight.intersight_bios_policy:
+    #     api_uri: "{{ intersight_endpoint }}"
+    #     api_private_key: "{{ intersight_privatekey }}"
+    #     api_key_id: "{{ intersight_apikeyid }}"
+    #     name: bios-policy
+    #     description: BIOS Policy        
+    #     state: absent
