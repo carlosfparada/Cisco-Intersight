@@ -59,7 +59,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         name: boot-order-policy
         description: Boot Order Policy
-        configured_boot_mode: legacy
+        configured_boot_mode: Legacy
         boot_devices:
           - device_type: Local Disk
             device_name: Boot-Lun
