@@ -26,6 +26,7 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: Local User Policy 1
+        description: Local User Policy 1
         local_users:
           - username: user1
             role: admin
