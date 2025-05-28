@@ -25,15 +25,15 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: local-user-policy-1
-        description: local-user-policy-1
+        name: local-user-policy
+        description: local-user-policy
         local_users:
           - username: user1
             role: readonly
             password: password
           - username: user2
             role: readonly
-            password: password2
+            password: password
         state: present
 
     - name: Configure Server Profile
