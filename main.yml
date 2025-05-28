@@ -137,6 +137,24 @@
 
   ## DELETE
 
+    - name: Delete Server Profile
+      cisco.intersight.intersight_server_profile:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: sp-server
+        target_platform: FIAttached
+        description: Profile for Servers
+        # assigned_server: 5e3b517d6176752d319a9999
+        boot_order_policy: boot-order-policy
+        imc_access_policy: -imc-access-policy
+        local_user_policy: local-user-policy
+        ntp_policy: ntp-policy
+        virtual_media_policy: virtual-media-policy
+        # storage_policy: storage
+        # lan_connectivity_policy: sjc02-d23-lan
+        state: present
+
     # - name: Delete Local User Policy
     #   cisco.intersight.intersight_local_user_policy:
     #     api_uri: "{{ intersight_endpoint }}"
@@ -178,7 +196,7 @@
     #     name: imc-access-policy
     #     state: absent
 
-    # - name: Create Virtual Media Policy
+    # - name: Delete Virtual Media Policy
     #   cisco.intersight.intersight_virtual_media_policy:
     #     api_uri: "{{ intersight_endpoint }}"
     #     api_private_key: "{{ intersight_privatekey }}"
