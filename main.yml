@@ -50,7 +50,7 @@
         cdn_enable: enabled
         cpu_energy_performance: performance
         direct_cache_access: enabled
-        state: absent
+        state: present
 
 
   ## PROFILES
