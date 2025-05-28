@@ -28,11 +28,11 @@
         name: local-user-policy
         description: local-user-policy
         local_users:
-          - username: user1
-            role: readonly
-            password: password
           - username: user2
             role: user
+            password: password
+          - username: user1
+            role: readonly
             password: password
         state: present
 
