@@ -93,8 +93,8 @@
         cdd_virtual_media:
           mount_type: nfs
           mount_options: ro
-          password: password
-          username: username
+          password: ''
+          username: ''
           volume: nfs-cdd
           remote_hostname: '10.11.12.13'
           remote_path: 'mnt/SHARE/ISOS/RHEL'
