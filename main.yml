@@ -67,7 +67,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         name: imc-access-policy
         description: IMC Access Policy
-        # ip_pool: dc1-pool
+        ip_pool: dc1-pool
         # vlan_id: 10
         state: present
 
