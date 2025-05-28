@@ -17,7 +17,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         server_names:
         
-        
+
   ## POLICIES
 
     - name: Create Local User Policy
@@ -61,7 +61,7 @@
         state: present
 
     - name: Create IMC Access Policy
-      intersight_imc_access_policy:
+      cisco.intersight.intersight_imc_access_policy:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
