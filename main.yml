@@ -17,13 +17,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         server_names:
         
-    - name: Debug intersight all servers 
-      ansible.builtin.debug:
-        msg: "server name {{ item.Name }}, moid {{ item.Moid }}"
-      loop: "{{ intersight_servers }}"
-      when: intersight_servers is defined
-
-
+        
   ## POLICIES
 
     - name: Create Local User Policy
