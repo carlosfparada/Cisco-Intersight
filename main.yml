@@ -90,12 +90,12 @@
         api_key_id: "{{ intersight_apikeyid }}"
         name: virtual-media-policy
         description: Virutal Media Policy
-        cdd_virtual_media:
-          mount_type: nfs
-          volume: nfs-cdd
-          remote_hostname: 10.11.12.13
-          remote_path: mnt/SHARE/ISOS/RHEL
-          remote_file: RHEL10.iso
+        # cdd_virtual_media:
+        #   mount_type: nfs
+        #   volume: nfs-cdd
+        #   remote_hostname: 10.11.12.13
+        #   remote_path: mnt/SHARE/ISOS/RHEL
+        #   remote_file: RHEL10.iso
         # hdd_virtual_media:
         #   mount_type: nfs
         #   volume: nfs-hdd
