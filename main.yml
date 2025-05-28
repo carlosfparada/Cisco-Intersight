@@ -31,6 +31,9 @@
           - username: user1
             role: readonly
             password: password
+          - username: user2
+            role: user
+            password: password
         state: present
 
     - name: Configure Server Profile
