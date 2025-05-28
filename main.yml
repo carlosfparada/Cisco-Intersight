@@ -67,8 +67,8 @@
         api_key_id: "{{ intersight_apikeyid }}"
         name: imc-access-policy
         description: IMC Access Policy
-        ip_pool: dc1-pool
-        vlan_id: 10
+        # ip_pool: dc1-pool
+        # vlan_id: 10
         state: present
 
 
@@ -81,7 +81,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         name: sp-server
         target_platform: FIAttached
-        description: Profile for SP Server
+        description: Profile for Servers
         # assigned_server: 5e3b517d6176752d319a9999
         # boot_order_policy: COS-Boot
         # imc_access_policy: sjc02-d23-access
@@ -90,6 +90,7 @@
         # ntp_policy: lab-ntp
         # storage_policy: storage
         # virtual_media_policy: COS-VM
+        state: present
 
 
 
