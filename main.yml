@@ -68,7 +68,7 @@
         name: imc-access-policy
         description: IMC Access Policy
         ip_pool: dc1-pool
-        # vlan_id: 10
+        vlan_id: 10
         state: present
 
 
