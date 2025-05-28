@@ -20,10 +20,11 @@
       loop: "{{ intersight_servers }}"
       when: intersight_servers is defined
 
-    - name: Configure Local User policy
+    - name: Configure Local User Policy
       intersight_local_user_policy:
-        api_private_key: "{{ api_private_key }}"
-        api_key_id: "{{ api_key_id }}"
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
         name: Local User Policy 1
         local_users:
           - username: user1
@@ -33,21 +34,18 @@
             role: readonly
             password: password2
 
-    # - name: Configure Server Profile
-    #   cisco.intersight.intersight_server_profile:
-    #     api_private_key: "{{ api_private_key }}"
-    #     api_key_id: "{{ api_key_id }}"
-    #     name: SP-Server1
-    #     target_platform: FIAttached
-    #     tags:
-    #       - Key: Site
-    #         Value: SJC02
-    #     description: Profile for Server1
-    #     assigned_server: 5e3b517d6176752d319a9999
-    #     boot_order_policy: COS-Boot
-    #     imc_access_policy: sjc02-d23-access
-    #     lan_connectivity_policy: sjc02-d23-lan
-    #     local_user_policy: guest-admin
-    #     ntp_policy: lab-ntp
-    #     storage_policy: storage
-    #     virtual_media_policy: COS-VM
+    - name: Configure Server Profile
+      cisco.intersight.intersight_server_profile:
+        api_private_key: "{{ api_private_key }}"
+        api_key_id: "{{ api_key_id }}"
+        name: SP-Server1
+        target_platform: FIAttached
+        description: Profile for Server1
+        assigned_server: 5e3b517d6176752d319a9999
+        boot_order_policy: COS-Boot
+        imc_access_policy: sjc02-d23-access
+        lan_connectivity_policy: sjc02-d23-lan
+        local_user_policy: guest-admin
+        ntp_policy: lab-ntp
+        storage_policy: storage
+        virtual_media_policy: COS-VM
