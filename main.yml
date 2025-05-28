@@ -28,12 +28,13 @@
         name: local-user-policy-1
         description: local-user-policy-1
         local_users:
-          - username: user1
+          - username: guest
             role: admin
-            password: password1
-          - username: user2
+            password: vault_guest_password
+          - username: reader
             role: readonly
-            password: password2
+            password: vault_reader_password
+        state: present
 
     - name: Configure Server Profile
       cisco.intersight.intersight_server_profile:
