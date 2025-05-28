@@ -143,63 +143,53 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: sp-server
-        target_platform: FIAttached
-        description: Profile for Servers
-        # assigned_server: 5e3b517d6176752d319a9999
-        boot_order_policy: boot-order-policy
-        imc_access_policy: -imc-access-policy
-        local_user_policy: local-user-policy
-        ntp_policy: ntp-policy
-        virtual_media_policy: virtual-media-policy
-        # storage_policy: storage
-        # lan_connectivity_policy: sjc02-d23-lan
         state: present
 
-    # - name: Delete Local User Policy
-    #   cisco.intersight.intersight_local_user_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: local-user-policy
-    #     state: absent
+    - name: Delete Local User Policy
+      cisco.intersight.intersight_local_user_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: local-user-policy
+        state: absent
 
-    # - name: Delete BIOS Policy
-    #   cisco.intersight.intersight_bios_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: bios-policy
-    #     description: BIOS Policy        
-    #     state: absent
+    - name: Delete BIOS Policy
+      cisco.intersight.intersight_bios_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: bios-policy
+        description: BIOS Policy        
+        state: absent
 
-    # - name: Delete Boot Order Policy
-    #   cisco.intersight.intersight_boot_order_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: boot-order-policy
-    #     state: absent
+    - name: Delete Boot Order Policy
+      cisco.intersight.intersight_boot_order_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: boot-order-policy
+        state: absent
 
-    # - name: Delete NTP Policy
-    #   cisco.intersight.intersight_ntp_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: ntp-policy 
-    #     state: absent
+    - name: Delete NTP Policy
+      cisco.intersight.intersight_ntp_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: ntp-policy 
+        state: absent
 
-    # - name: Delete IMC Access Policy
-    #   cisco.intersight.intersight_imc_access_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: imc-access-policy
-    #     state: absent
+    - name: Delete IMC Access Policy
+      cisco.intersight.intersight_imc_access_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: imc-access-policy
+        state: absent
 
-    # - name: Delete Virtual Media Policy
-    #   cisco.intersight.intersight_virtual_media_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: virtual-media-policy
-    #     state: absent
+    - name: Delete Virtual Media Policy
+      cisco.intersight.intersight_virtual_media_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: virtual-media-policy
+        state: absent
