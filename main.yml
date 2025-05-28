@@ -20,21 +20,21 @@
       loop: "{{ intersight_servers }}"
       when: intersight_servers is defined
 
-    # - name: Configure Local User Policy
-    #   cisco.intersight.intersight_local_user_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: local-user-policy-1
-    #     description: local-user-policy-1
-    #     local_users:
-    #       - username: guest
-    #         role: readonly
-    #         password: vault_guest_password
-    #       - username: reader
-    #         role: readonly
-    #         password: vault_reader_password
-    #     state: present
+    - name: Configure Local User Policy
+      cisco.intersight.intersight_local_user_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: local-user-policy-1
+        description: local-user-policy-1
+        local_users:
+          - username: user1
+            role: readonly
+            password: password
+          - username: user2
+            role: readonly
+            password: password2
+        state: present
 
     - name: Configure Server Profile
       cisco.intersight.intersight_server_profile:
