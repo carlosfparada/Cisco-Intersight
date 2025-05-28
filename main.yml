@@ -95,7 +95,7 @@
         #   volume: nfs-cdd
         #   remote_hostname: 10.11.12.13
         #   remote_path: mnt/SHARE/ISOS/RHEL
-        #   remote_file: CentOS7.iso
+        #   remote_file: RHEL10.iso
         hdd_virtual_media:
           mount_type: nfs
           volume: nfs-hdd
