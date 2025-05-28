@@ -122,13 +122,13 @@
         target_platform: FIAttached
         description: Profile for Servers
         # assigned_server: 5e3b517d6176752d319a9999
-        # boot_order_policy: COS-Boot
-        # imc_access_policy: sjc02-d23-access
-        # lan_connectivity_policy: sjc02-d23-lan
-        # local_user_policy: guest-admin
-        # ntp_policy: lab-ntp
+        boot_order_policy: boot-order-policy
+        imc_access_policy: -imc-access-policy
+        local_user_policy: local-user-policy
+        ntp_policy: ntp-policy
+        virtual_media_policy: virtual-media-policy
         # storage_policy: storage
-        # virtual_media_policy: COS-VM
+        # lan_connectivity_policy: sjc02-d23-lan
         state: present
 
 
