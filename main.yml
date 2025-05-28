@@ -16,7 +16,9 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         server_names:
-        
+
+  ## POOLS
+    
 
   ## POLICIES
 
