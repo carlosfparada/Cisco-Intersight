@@ -51,7 +51,7 @@
               "Size": 100
             }
             ],
-          "AssignmentOrder": default
+          "AssignmentOrder": "default"
         }
         state: present
       register: test
