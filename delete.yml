@@ -71,7 +71,7 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: imc-access-policy
-        ip_pool: dc1-pool
+        ip_pool: dc1-ip-pool
         vlan_id: 10
         state: absent
 
