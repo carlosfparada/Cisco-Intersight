@@ -48,10 +48,10 @@
           "IpV4Blocks": [ 
             {
               "From": "10.0.0.2",
-              "Size": "100"
+              "Size": 100
             }
             ],
-          "AssignmentOrder": "default"
+          "AssignmentOrder": default
         }
         state: present
       register: test
