@@ -10,6 +10,15 @@
 
   ## SERVERS
 
+    # - name: Claim new Target
+    #   cisco.intersight.intersight_target_claim:
+    #     api_uri: "{{ intersight_endpoint }}"
+    #     api_private_key: "{{ intersight_privatekey }}"
+    #     api_key_id: "{{ intersight_apikeyid }}"
+    #     device_id: "{{ device_id }}"
+    #     claim_code: "{{ claim_code }}"
+    #     state: present
+
     - name: Get info for all servers
       cisco.intersight.intersight_info:
         api_uri: "{{ intersight_endpoint }}"
