@@ -54,7 +54,7 @@
           "AssignmentOrder": "default"
         }
         state: present
-      register: test
+
 
   ## POLICIES
 
