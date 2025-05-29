@@ -46,15 +46,15 @@
             "SecondaryDns": "8.8.8.9"
             },
           "IpV4Blocks": [ 
-            {
-              "From": "10.0.0.2",
-              "Size": "10.0.0.2"
-            }
+              {
+                "From": "10.0.0.2",
+                "Size": "10.0.0.2"
+              }
             ],
-          "AssignmentOrder": default
+          "AssignmentOrder": "default"
         }
         state: present
-
+      register: test
 
   ## POLICIES
 
