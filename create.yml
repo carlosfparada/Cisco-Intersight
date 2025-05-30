@@ -34,8 +34,6 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /ippool/Pools
-        # query_params:
-        #   $filter: "Name eq 'dc1-ip-pool'"
         api_body: {
           "Name": "dc1-ip-pool",
           "Description": "DC1 IP Pool",
@@ -161,7 +159,7 @@
         description: Profile for Servers
         # assigned_server: 5e3b517d6176752d319a9999
         boot_order_policy: boot-order-policy
-        imc_access_policy: -imc-access-policy
+        imc_access_policy: imc-access-policy
         local_user_policy: local-user-policy
         ntp_policy: ntp-policy
         virtual_media_policy: virtual-media-policy
@@ -178,8 +176,6 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /ippool/Pools
-        query_params:
-          $filter: "Name eq 'dc1-ip-pool'"
         api_body: {
           "Name": "dc1-ip-pool",
           "Description": "DC1 IP Pool",
