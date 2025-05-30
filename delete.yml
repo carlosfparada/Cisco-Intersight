@@ -39,7 +39,8 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: sp-server
+        query_params:
+          $filter: "Name eq 'sp-server'"
         state: absent
 
 
@@ -50,7 +51,8 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: local-user-policy
+        query_params:
+          $filter: "Name eq 'local-user-policy'"
         state: absent
 
     - name: Delete BIOS Policy
@@ -58,8 +60,8 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: bios-policy
-        description: BIOS Policy        
+        query_params:
+          $filter: "Name eq 'bios-policy'"
         state: absent
 
     - name: Delete Boot Order Policy
@@ -67,7 +69,8 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: boot-order-policy
+        query_params:
+          $filter: "Name eq 'boot-order-policy'"
         state: absent
 
     - name: Delete NTP Policy
@@ -75,7 +78,8 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: ntp-policy 
+        query_params:
+          $filter: "Name eq 'ntp-policy'"
         state: absent
 
     - name: Delete IMC Access Policy
