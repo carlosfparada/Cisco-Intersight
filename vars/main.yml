@@ -1,6 +1,144 @@
-# intersight_host: "{{ ansible_host }}"
-# intersight_user: "{{ ansible_user }}"
-# intersight_endpoint: "{{ intersight_endpoint }}"
-# #intersight_apikeyid: "{{ ansible_ssh_pass }}"
-# intersight_apikeyid: "{{ intersight_apikeyid }}"
-# intersight_privatekey: "{{ intersight_privatekey }}"
+---
+
+## SERVERS
+
+# device_id: "XXX"
+# claim_code: "XXX"
+
+
+## POOLS
+
+ip_pool_name: "dc1-ip-pool"
+ip_pool_description: "DC1 IP Pool"
+ip_pool_ipv4:
+  netmask: "255.255.255.0"
+  gateway: "10.0.0.1"
+  primary_dns: "8.8.8.8"
+  secondaryDns: "8.8.8.9"
+  from: "10.0.0.2"
+  size: 100
+
+## POLICIES
+
+local_user_policy_name: local-user-policy
+local_user_policy_description: Local User Policy
+local_user_policy_users:
+  - username: user1
+    role: readonly
+    password: password
+
+bios_policy_name: bios-policy
+bios_policy_description: BIOS Policy
+bios_policy_options:
+  processor_cstate: enabled
+  cdn_enable: enabled
+  cpu_energy_performance: performance
+  direct_cache_access: enabled
+
+boot_order_policy_name: boot-order-policy
+boot_order_policy_description: Boot Order Policy
+boot_order_policy_configured_boot_mode: Legacy
+boot_order_policy_boot_devices:
+  - device_type: Local Disk
+    device_name: Boot-Lun
+    controller_slot: MRAID
+
+ntp_policy_name: ntp-policy 
+ntp_policy_description: NTP Policy
+ntp_policy_servers:
+  - ntp.esl.cisco.com
+ntp_policy_timezone: Europe/Lisbon
+
+imc_access_policy_name: imc-access-policy
+imc_access_policy_description: IMC Access Policy
+imc_access_policy_ip_pool: dc1-ip-pool
+imc_access_policy_vlan_id: 10
+
+virtual_media_policy_name: virtual-media-policy
+virtual_media_policy_description: Virtual Media Policy
+virtual_media_policy_cdd_virtual_media:
+  mount_type: nfs
+  mount_options: ro
+  password: ''
+  username: ''
+  volume: nfs-cdd
+  remote_hostname: '10.11.12.13'
+  remote_path: 'mnt/SHARE/ISOS/RHEL'
+  remote_file: 'RHEL10.iso'
+virtual_media_policy_hdd_virtual_media:
+  mount_type: nfs
+  mount_options: rw
+  password: ''
+  username: ''
+  volume: nfs-hdd
+  remote_hostname: 10.11.12.13
+  remote_path: mnt/SHARE/ISOS/RHEL
+  remote_file: RHEL10.img
+
+
+## PROFILES
+
+server_profile_name: server-profile
+server_profile_target_platform: FIAttached
+server_profile_description: Profile for Servers
+# server_profile_assigned_server: 5e3b517d6176752d319a9999
+server_profile_boot_order_policy: boot-order-policy
+server_profile_imc_access_policy: imc-access-policy
+server_profile_local_user_policy: local-user-policy
+server_profile_ntp_policy: ntp-policy
+server_profile_virtual_media_policy: virtual-media-policy
+# server_profile_storage_policy: storage
+# server_profile_lan_connectivity_policy: sjc02-d23-lan
+
+
+## TEMPLATES
+
+server_profile_template_api_body: {
+          "Name": "server-profile-template",
+          "Description": "Server Profile Template",
+          "TargetPlatform": "FIAttached",
+          "PolicyBucket": [
+            {
+              "Moid": "{{ ntp_policy.api_response.Moid }}",
+              "ObjectType": "ntp.Policy"
+            },
+            {
+              "Moid": "{{ imc_access_policy.api_response.Moid }}",
+              "ObjectType": "access.Policy"
+            },
+            {
+              "Moid": "{{ virtual_media_policy.api_response.Moid }}",
+              "ObjectType": "vmedia.Policy"
+            },
+            {
+              "Moid": "{{ boot_order_policy.api_response.Moid }}",
+              "ObjectType": "boot.PrecisionPolicy"
+            },
+            {
+              "Moid": "{{ bios_policy.api_response.Moid }}",
+              "ObjectType": "bios.Policy"
+            }
+          ]       
+        }
+
+server_profile_template_derive_api_body: {
+          "Sources": [
+            {
+              "ClassId": "mo.MoRef",
+              "ObjectType": "server.ProfileTemplate",
+              "Moid": "{{ server_profile_template.api_response.Moid }}"
+            }
+          ],
+          "Targets": [
+            {
+              "Name": "server-profile-template-{{ item }}",
+              "ObjectType": "server.Profile",
+              "Organization": {
+                "Moid": "{{ server_profile_template.api_response.Organization.Moid }}"
+              },
+              "ClassId": "server.Profile"
+            }
+          ]
+        }
+        state: present
+server_profile_template_number: 3
