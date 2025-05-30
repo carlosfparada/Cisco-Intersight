@@ -32,7 +32,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /server/Profiles
         query_params:
-          $filter: "Name eq 'server-profile'"
+          $filter: "Name eq '{{ server_profile_name }}'"
       register: server_profiles
 
 
@@ -45,7 +45,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /iam/EndPointUserPolicies
         query_params:
-          $filter: "Name eq 'local-user-policy'"
+          $filter: "Name eq '{{ local_user_policy_name }}'"
       register: local_user_policy
 
     - name: Query BIOS Policy
@@ -55,7 +55,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /bios/Policies
         query_params:
-          $filter: "Name eq 'bios-policy'"
+          $filter: "Name eq '{{ bios_policy_name }}'"
       register: bios_policy
 
     - name: Query Boot Order Policy
@@ -65,7 +65,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /boot/PrecisionPolicies
         query_params:
-          $filter: "Name eq 'boot-order-policy'"
+          $filter: "Name eq '{{ boot_order_policy_name }}'"
       register: boot_order_policy
 
     - name: Query NTP Policy
@@ -75,7 +75,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /ntp/Policies
         query_params:
-          $filter: "Name eq 'ntp-policy'"
+          $filter: "Name eq '{{ ntp_policy_name }}'"
       register: ntp_policy
 
     - name: Query IMC Access Policy
@@ -85,7 +85,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /access/Policies
         query_params:
-          $filter: "Name eq 'imc-access-policy'"
+          $filter: "Name eq '{{ imc_access_policy_name }}'"
       register: imc_access_policy
 
     - name: Query Virtual Media Policy
@@ -95,7 +95,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /vmedia/Policies
         query_params:
-          $filter: "Name eq 'virtual-media-policy'"
+          $filter: "Name eq '{{ virtual_media_policy_name }}'"
       register: virtual_media_policy
 
 
@@ -108,5 +108,5 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /ippool/Pools
         query_params:
-          $filter: "Name eq 'dc1-ip-pool'"
+          $filter: "Name eq '{{ ip_pool_name }}'"
       register: dc1_ip_pool

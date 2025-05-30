@@ -39,7 +39,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: server-profile
+        name: "{{ server_profile_name }}"
         state: absent
 
 
@@ -50,7 +50,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: local-user-policy
+        name: "{{ local_user_policy_name }}"
         state: absent
 
     - name: Delete BIOS Policy
@@ -58,7 +58,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: bios-policy
+        name: "{{ bios_policy_name }}"
         state: absent
 
     - name: Delete Boot Order Policy
@@ -66,7 +66,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: boot-order-policy
+        name: "{{ boot_order_policy_name }}"
         state: absent
 
     - name: Delete NTP Policy
@@ -74,7 +74,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: ntp-policy 
+        name: "{{ ntp_policy_name }}"
         state: absent
 
     - name: Delete IMC Access Policy
@@ -82,7 +82,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: imc-access-policy
+        name: "{{ imc_access_policy_name }}"
         ip_pool: dc1-ip-pool
         vlan_id: 10
         state: absent
@@ -92,7 +92,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: virtual-media-policy
+        name: "{{ virtual_media_policy_name }}"
         state: absent
 
 
@@ -105,6 +105,6 @@
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /ippool/Pools
         query_params:
-          $filter: "Name eq 'dc1-ip-pool'"
+          $filter: "Name eq '{{ ip_pool_name }}'"
         state: absent
 
