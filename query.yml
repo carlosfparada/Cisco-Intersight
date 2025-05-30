@@ -31,7 +31,8 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /server/ProfileTemplates
-        name: 'server-profile'
+        query_params:
+          $filter: "Name eq 'server-profile'""
       register: server_profiles
 
 
