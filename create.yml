@@ -49,7 +49,7 @@
           "IpV4Blocks": [ 
             {
               "From": "{{ ip_pool_ipv4.from }}",
-              "Size": '{{ ip_pool_ipv4.size }}'
+              "Size": {{ ip_pool_ipv4.size }}
             }
             ],
           "AssignmentOrder": "default"
