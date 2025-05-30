@@ -217,6 +217,9 @@
         state: present
       register: server_profile_template
 
+    - debug:
+        msg: "{{ server_profile_template.api_response.Organization.Moid }}"
+
     - name: Derive Server Profile Template into Server Profile
       cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
