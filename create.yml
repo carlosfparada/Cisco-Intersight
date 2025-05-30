@@ -92,7 +92,7 @@
         api_key_id: "{{ intersight_apikeyid }}"
         name: "{{ boot_order_policy_name }}"
         description: "{{ boot_order_policy_description }}"
-        configured_boot_mode: "{{ boot_order_policy_configured_boot_order }}"
+        configured_boot_mode: "{{ boot_order_policy_configured_boot_mode }}"
         boot_devices: "{{ boot_order_policy_boot_devices }}"
         state: present
       register: boot_order_policy
