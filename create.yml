@@ -215,7 +215,7 @@
             },
             {
               "Moid": "{{ local_user_policy.api_response.Moid }}",
-              "ObjectType": "iam.EndPointUserPolicy"
+              "ObjectType": "iam.LocalUserPasswordPolicies"
             },
             {
               "Moid": "{{ bios_policy.api_response.Moid }}",
