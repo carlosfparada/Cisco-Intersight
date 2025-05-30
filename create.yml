@@ -28,6 +28,7 @@
         server_names:
       register: server_names
 
+
   ## POOLS
 
     - name: Create IP Pool
