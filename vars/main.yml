@@ -16,6 +16,7 @@ ip_pool_ipv4:
   primary_dns: "8.8.8.8"
   secondary_dns: "8.8.8.9"
   from: "10.0.0.2"
+  to: "10.0.0.100"
   size: 100
 
 
