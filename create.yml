@@ -185,7 +185,7 @@
 
     - debug:
         var: dc1_ip_pool
-        
+
     - name: Create Profile Template
       cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
@@ -198,12 +198,12 @@
           "TargetPlatform": "FIAttached",
           "PolicyBucket": [
             {
-              "Moid": "{{ ntp_policy.Organization.Account.Moid }}",
+              "Moid": "{{ ntp_policy.api_response.Organization.Moid }}",
               "ObjectType": "ntp.Policy"
             }
           ],
           "IPPool": {
-            "Moid": "{{ dc1_ip_pool.Organization.Moid }}",
+            "Moid": "{{ dc1_ip_pool.api_response.Organization.Moid }}",
             "ObjectType": "ippool.Pool"
           }
         }
