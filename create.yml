@@ -180,6 +180,12 @@
 
   ## TEMPLATES
 
+    - debug:
+        var: ntp_policy
+
+    - debug:
+        var: dc1_ip_pool
+        
     - name: Create Profile Template
       cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
