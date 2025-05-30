@@ -210,7 +210,7 @@
             },
             {
               "Moid": "{{ imc_access_policy.api_response.Moid }}",
-              "ObjectType": "access.AddressType"
+              "ObjectType": "access.Policy"
             },
             {
               "Moid": "{{ virtual_media_policy.api_response.Moid }}",
