@@ -182,7 +182,7 @@
 
 
     - debug:
-        var: bios_policy
+        var: local_user_policy
 
     - name: Create Profile Template
       cisco.intersight.intersight_rest_api:
@@ -198,10 +198,6 @@
             {
               "Moid": "{{ ntp_policy.api_response.Moid }}",
               "ObjectType": "ntp.Policy"
-            },
-            {
-              "Moid": "{{ local_user_policy.api_response.Moid }}",
-              "ObjectType": "iam.EndPointUserRole"
             },
             {
               "Moid": "{{ boot_order_policy.api_response.Moid }}",
