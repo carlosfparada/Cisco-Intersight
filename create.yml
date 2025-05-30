@@ -184,6 +184,8 @@
         var: ntp_policy
     - debug:
         var: local_user_policy
+    - debug:
+        var: imc_access_policy
 
     - name: Create Profile Template
       cisco.intersight.intersight_rest_api:
