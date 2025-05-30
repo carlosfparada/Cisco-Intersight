@@ -216,8 +216,8 @@
               "ObjectType": "vmedia.Policy"
             },
             {
-              "Moid": "{{ local_user_policy.api_response.Moid }}",
-              "ObjectType": "localuser.Policy"
+              "Moid": "{{ bios_policy.api_response.Moid }}",
+              "ObjectType": "bios.Policy"
             }
           ]       
         }
