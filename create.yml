@@ -245,6 +245,5 @@
             }
           ]
         }
-
         state: present
       register: server_profile_template
