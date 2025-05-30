@@ -18,6 +18,7 @@ ip_pool_ipv4:
   from: "10.0.0.2"
   size: 100
 
+
 ## POLICIES
 
 local_user_policy_name: local-user-policy
@@ -89,56 +90,3 @@ server_profile_ntp_policy: ntp-policy
 server_profile_virtual_media_policy: virtual-media-policy
 # server_profile_storage_policy: storage
 # server_profile_lan_connectivity_policy: sjc02-d23-lan
-
-
-## TEMPLATES
-
-server_profile_template_api_body: {
-          "Name": "server-profile-template",
-          "Description": "Server Profile Template",
-          "TargetPlatform": "FIAttached",
-          "PolicyBucket": [
-            {
-              "Moid": "{{ ntp_policy.api_response.Moid }}",
-              "ObjectType": "ntp.Policy"
-            },
-            {
-              "Moid": "{{ imc_access_policy.api_response.Moid }}",
-              "ObjectType": "access.Policy"
-            },
-            {
-              "Moid": "{{ virtual_media_policy.api_response.Moid }}",
-              "ObjectType": "vmedia.Policy"
-            },
-            {
-              "Moid": "{{ boot_order_policy.api_response.Moid }}",
-              "ObjectType": "boot.PrecisionPolicy"
-            },
-            {
-              "Moid": "{{ bios_policy.api_response.Moid }}",
-              "ObjectType": "bios.Policy"
-            }
-          ]       
-        }
-
-server_profile_template_derive_api_body: {
-          "Sources": [
-            {
-              "ClassId": "mo.MoRef",
-              "ObjectType": "server.ProfileTemplate",
-              "Moid": "{{ server_profile_template.api_response.Moid }}"
-            }
-          ],
-          "Targets": [
-            {
-              "Name": "server-profile-template-{{ item }}",
-              "ObjectType": "server.Profile",
-              "Organization": {
-                "Moid": "{{ server_profile_template.api_response.Organization.Moid }}"
-              },
-              "ClassId": "server.Profile"
-            }
-          ]
-        }
-        state: present
-server_profile_template_number: 3
