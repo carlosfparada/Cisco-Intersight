@@ -181,7 +181,7 @@
   ## TEMPLATES
 
     - debug:
-        var: bios_policy
+        var: boot_order_policy
     - debug:
         var: local_user_policy
 
