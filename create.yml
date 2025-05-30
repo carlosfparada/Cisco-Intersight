@@ -184,7 +184,14 @@
         var: ntp_policy
 
     - debug:
-        var: dc1_ip_pool
+        var: local_user_policy
+    - debug:
+        var: boot order_policy
+
+    - debug:
+        var: imc_access_policy
+    - debug:
+        var: virtual_media_policy
 
     - name: Create Profile Template
       cisco.intersight.intersight_rest_api:
