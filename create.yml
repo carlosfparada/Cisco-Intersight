@@ -201,10 +201,6 @@
               "Moid": "{{ ntp_policy.api_response.Moid }}",
               "ObjectType": "ntp.Policy"
             },
-            {
-              "Moid": "{{ local_user_policy.api_response.Moid }}",
-              "ObjectType": "localuser.Policy"
-            },
           ],
           "IpPool": {
             "Moid": "{{ dc1_ip_pool.api_response.Moid }}",
@@ -214,3 +210,7 @@
         state: present
       register: server_profile_template
 
+            # {
+            #   "Moid": "{{ local_user_policy.api_response.Moid }}",
+            #   "ObjectType": "localuser.Policy"
+            # },
