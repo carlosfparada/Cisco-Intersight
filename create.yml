@@ -234,7 +234,7 @@
           ],
           "Targets": [
             {
-              "Name": "server-profile-template-1",
+              "Name": "server-profile-template-{{ item }}",
               "ObjectType": "server.Profile",
               "Organization": {
                 "Moid": "{{ server_profile_template.api_response.Organization.Moid }}"
