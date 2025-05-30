@@ -218,6 +218,10 @@
               "ObjectType": "boot.PrecisionPolicy"
             },
             {
+              "Moid": "{{ local_user_policy.api_response.Moid }}",
+              "ObjectType": "iam.EndPointUserPolicy"
+            },
+            {
               "Moid": "{{ bios_policy.api_response.Moid }}",
               "ObjectType": "bios.Policy"
             }
@@ -227,7 +231,3 @@
       register: server_profile_template
 
 
-            # {
-            #   "Moid": "{{ local_user_policy.api_response.Moid }}",
-            #   "ObjectType": "localuser.Policy"
-            # },
