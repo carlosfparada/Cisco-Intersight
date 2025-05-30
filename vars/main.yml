@@ -72,7 +72,7 @@ virtual_media_policy_hdd_virtual_media:
   password: ''
   username: ''
   volume: nfs-hdd
-  remote_hostname: 10.11.12.13
+  remote_hostname: '10.11.12.13'
   remote_path: mnt/SHARE/ISOS/RHEL
   remote_file: RHEL10.img
 
