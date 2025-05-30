@@ -12,14 +12,14 @@
 
   ## TEMPLATES
 
-    - name: Query Profile Template
+    - name: Query Server Profile Template
       cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /server/ProfileTemplates
         query_params:
-          $filter: "Name eq '*'"
+          $filter: "Name eq 'server-profile-template'"
       register: server_profile_templates
 
 
