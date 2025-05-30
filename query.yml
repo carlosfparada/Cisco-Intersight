@@ -46,6 +46,7 @@
     #     resource_path: /iam/Policies
     #     query_params:
     #       $filter: "Name eq 'local-user-policy'"
+    #   register: local_user_policy
 
     - name: Query BIOS Policy
       cisco.intersight.intersight_rest_api:
@@ -55,6 +56,7 @@
         resource_path: /bios/Policies
         query_params:
           $filter: "Name eq 'bios-policy'"
+      register: bios_policy
 
     # - name: Query Boot Order Policy
     #   cisco.intersight.intersight_rest_api:
@@ -64,6 +66,7 @@
     #     resource_path: /boot/Policies
     #     query_params:
     #       $filter: "Name eq 'boot-order-policy'"
+    #   register: boot_order_policy
 
     - name: Query NTP Policy
       cisco.intersight.intersight_rest_api:
@@ -73,6 +76,7 @@
         resource_path: /ntp/Policies
         query_params:
           $filter: "Name eq 'ntp-policy'"
+      register: ntp_policy
 
     - name: Query IMC Access Policy
       cisco.intersight.intersight_rest_api:
@@ -82,6 +86,7 @@
         resource_path: /access/Policies
         query_params:
           $filter: "Name eq 'imc-access-policy'"
+      register: imc_access_policy
 
     - name: Query Virtual Media Policy
       cisco.intersight.intersight_rest_api:
@@ -91,6 +96,7 @@
         resource_path: /vmedia/Policies
         query_params:
           $filter: "Name eq 'virtual-media-policy'"
+      register: virtual_media_policy
 
 
   ## POOLS
@@ -101,5 +107,5 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         query_params:
-          $filter: "Name eq '*'"
-      register: sp_server
+          $filter: "Name eq 'dc1-ip-pool'"
+      register: dc1_ip_pool
