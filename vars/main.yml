@@ -14,7 +14,7 @@ ip_pool_ipv4:
   netmask: "255.255.255.0"
   gateway: "10.0.0.1"
   primary_dns: "8.8.8.8"
-  secondaryDns: "8.8.8.9"
+  secondary_dns: "8.8.8.9"
   from: "10.0.0.2"
   size: 100
 
