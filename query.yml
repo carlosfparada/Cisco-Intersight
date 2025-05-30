@@ -84,7 +84,7 @@
           $filter: "Name eq 'imc-access-policy'"
 
     - name: Query Virtual Media Policy
-      cisco.intersight.intersight_virtual_media_policy:
+      cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
