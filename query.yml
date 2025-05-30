@@ -26,7 +26,7 @@
   ## PROFILES
 
     - name: Query Server Profile
-      cisco.intersight.intersight_server_profile:
+      cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
