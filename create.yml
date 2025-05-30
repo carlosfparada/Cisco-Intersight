@@ -237,7 +237,7 @@
               "Name": "server-profile-template_DERIVED-1",
               "ObjectType": "server.Profile",
               "Organization": {
-                "Moid": "{{ server_profile_template.api_response.Moid }}"
+                "Moid": "{{ server_profile_template.api_response.Organization.Moid }}"
               },
               "ClassId": "server.Profile"
             }
@@ -245,4 +245,5 @@
         }
         state: present
       register: server_profile_template
-      #with_sequence: start=1 end=2
+      # with_sequence: start=1 end=2
+      # loop: "{{ range(1, num_profiles + 1) | list }}"
