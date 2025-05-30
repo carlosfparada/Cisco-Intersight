@@ -61,7 +61,9 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: boot-order-policy
+        resource_path: /boot/Policies
+        query_params:
+          $filter: "Name eq 'boot-order-policy'"
 
     - name: Query NTP Policy
       cisco.intersight.intersight_rest_api:
