@@ -23,7 +23,7 @@ ip_pool_ipv4:
 
 local_user_policy_name: local-user-policy
 local_user_policy_description: Local User Policy
-local_user_policy_users:
+local_user_policy_local_users:
   - username: user1
     role: readonly
     password: password
