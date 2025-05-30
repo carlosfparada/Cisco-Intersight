@@ -1,6 +1,6 @@
 ---
 
-- name: Cisco Intersight Delete
+- name: Cisco Intersight Query
   hosts: localhost
   connection: local
   gather_facts: false
