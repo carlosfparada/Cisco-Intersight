@@ -38,7 +38,8 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: sp-server
+        query_params:
+          $filter: "Name eq 'sp-server'"
         state: absent
 
 
