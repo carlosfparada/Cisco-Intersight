@@ -189,7 +189,7 @@
         api_body: {
           "Name": "server-profile-template",
           "Description": "Server Profile Template",
-          "TargetPlatform": "FIAttached"
+          "TargetPlatform": "FIAttached",
           "PolicyBucket": [
             {
               "Moid": "{{ ntp_policy.Organization.Account.Moid }}",
