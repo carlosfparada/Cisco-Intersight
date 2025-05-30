@@ -200,6 +200,10 @@
               "ObjectType": "ntp.Policy"
             },
             {
+              "Moid": "{{ local_user_policy.api_response.Moid }}",
+              "ObjectType": "iam.EndPointUserRole"
+            },
+            {
               "Moid": "{{ boot_order_policy.api_response.Moid }}",
               "ObjectType": "boot.Bootloader"
             },
