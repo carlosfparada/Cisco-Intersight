@@ -181,11 +181,10 @@
   ## TEMPLATES
 
     - debug:
-        var: ntp_policy
+        var: bios_policy
     - debug:
         var: local_user_policy
-    - debug:
-        var: imc_access_policy
+
 
     - name: Create Profile Template
       cisco.intersight.intersight_rest_api:
@@ -211,6 +210,10 @@
               "ObjectType": "vmedia.Policy"
             },
             {
+              "Moid": "{{ boot_order_policy.api_response.Moid }}",
+              "ObjectType": "boot.Policy"
+            },
+            {
               "Moid": "{{ bios_policy.api_response.Moid }}",
               "ObjectType": "bios.Policy"
             }
@@ -220,3 +223,7 @@
       register: server_profile_template
 
 
+            # {
+            #   "Moid": "{{ local_user_policy.api_response.Moid }}",
+            #   "ObjectType": "iam.EndPointUserPolicy"
+            # },
