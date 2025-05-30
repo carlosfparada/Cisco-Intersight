@@ -211,7 +211,7 @@
             },
             {
               "Moid": "{{ boot_order_policy.api_response.Moid }}",
-              "ObjectType": "boot.Policy"
+              "ObjectType": "boot.PrecisionPolicy"
             },
             {
               "Moid": "{{ bios_policy.api_response.Moid }}",
