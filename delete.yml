@@ -105,6 +105,8 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /ippool/Pools
-        name: 'dc1-ip-pool'
+        # name: 'dc1-ip-pool'
+        query_params:
+          $filter: "Name eq 'dc1-ip-pool'"
         state: absent
 
