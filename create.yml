@@ -198,7 +198,7 @@
           "TargetPlatform": "FIAttached",
           "PolicyBucket": [
             {
-              "Moid": "{{ ntp_policy.api_response.Organization.Moid }}",
+              "Moid": "{{ ntp_policy.api_response.Moid }}",
               "ObjectType": "ntp.Policy"
             }
           ]
@@ -206,3 +206,8 @@
         state: present
       register: server_profile_template
 
+# ,
+#           "IPPool": {
+#             "Moid": "{{ dc1_ip_pool.api_response.Moid }}",
+#             "ObjectType": "ippool.Pool"
+#           }
