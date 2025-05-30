@@ -197,10 +197,6 @@
               "ObjectType": "ntp.Policy"
             },
             {
-              "Moid": "{{ local_user_policy.api_response.Moid }}",
-              "ObjectType": "iam.EndPointUserPolicies"
-            },
-            {
               "Moid": "{{ imc_access_policy.api_response.Moid }}",
               "ObjectType": "access.Policy"
             },
