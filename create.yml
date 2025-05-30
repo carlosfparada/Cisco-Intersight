@@ -182,12 +182,7 @@
 
 
     - debug:
-        var: boot_order_policy
-
-    - debug:
-        var: imc_access_policy
-    - debug:
-        var: virtual_media_policy
+        var: bios_policy
 
     - name: Create Profile Template
       cisco.intersight.intersight_rest_api:
@@ -207,6 +202,18 @@
             {
               "Moid": "{{ local_user_policy.api_response.Moid }}",
               "ObjectType": "iam.EndPointUserRole"
+            },
+            {
+              "Moid": "{{ boot_order_policy.api_response.Moid }}",
+              "ObjectType": "boot.Bootloader"
+            },
+            {
+              "Moid": "{{ imc_access_policy.api_response.Moid }}",
+              "ObjectType": "access.AddressType"
+            },
+            {
+              "Moid": "{{ virtual_media_policy.api_response.Moid }}",
+              "ObjectType": "vmedia.Policy"
             },
             {
               "Moid": "{{ local_user_policy.api_response.Moid }}",
