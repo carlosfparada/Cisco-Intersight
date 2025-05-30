@@ -192,17 +192,13 @@
           "TargetPlatform": "FIAttached"
           "PolicyBucket": [
             {
-              "Moid": "{{ ntp_resp.api_response.Moid }}",
+              "Moid": "{{ ntp_policy.Organization.Account.Moid }}",
               "ObjectType": "ntp.Policy"
-            },
-            {
-              "Moid": "{{ access_resp.api_response.Moid }}",
-              "ObjectType": "access.Policy"
             }
           ],
-          "UuidPool": {
-            "Moid": "{{ uuid_resp.api_response.Moid }}",
-            "ObjectType": "uuidpool.Pool"
+          "IPPool": {
+            "Moid": "{{ dc1_ip_pool.Organization.Moid }}",
+            "ObjectType": "ippool.Pool"
           }
         }
         state: present
