@@ -30,7 +30,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        resource_path: /server/ProfileTemplates
+        resource_path: /server/Profiles
         query_params:
           $filter: "Name eq 'server-profile'"
       register: server_profiles
@@ -39,47 +39,39 @@
   ## POLICIES
 
     - name: Query Local User Policy
-      cisco.intersight.intersight_local_user_policy:
+      cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: local-user-policy
-        state: absent
 
     - name: Query BIOS Policy
-      cisco.intersight.intersight_bios_policy:
+      cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: bios-policy
-        description: BIOS Policy        
-        state: absent
 
     - name: Query Boot Order Policy
-      cisco.intersight.intersight_boot_order_policy:
+      cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: boot-order-policy
-        state: absent
 
     - name: Query NTP Policy
-      cisco.intersight.intersight_ntp_policy:
+      cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: ntp-policy 
-        state: absent
 
     - name: Query IMC Access Policy
-      cisco.intersight.intersight_imc_access_policy:
+      cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: imc-access-policy
-        ip_pool: dc1-ip-pool
-        vlan_id: 10
-        state: absent
 
     - name: Query Virtual Media Policy
       cisco.intersight.intersight_virtual_media_policy:

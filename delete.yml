@@ -59,7 +59,6 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         name: bios-policy
-        description: BIOS Policy        
         state: absent
 
     - name: Delete Boot Order Policy
