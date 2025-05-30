@@ -245,5 +245,5 @@
         }
         state: present
       register: server_profile_template
-      with_sequence: start=1 end=2
-      # loop: "{{ range(1, num_profiles + 1) | list }}"
+      # with_sequence: start=1 end=2
+      loop: "{{ range(1, 2) | list }}"
