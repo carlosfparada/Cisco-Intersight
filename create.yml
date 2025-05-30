@@ -18,6 +18,7 @@
     #     device_id: "{{ device_id }}"
     #     claim_code: "{{ claim_code }}"
     #     state: present
+    #   register: claim_server
 
     - name: Get info for all servers
       cisco.intersight.intersight_info:
@@ -25,6 +26,7 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         server_names:
+      register: server_names
 
   ## POOLS
 
@@ -52,6 +54,7 @@
           "AssignmentOrder": "default"
         }
         state: present
+      register: dc1_ip_pool
 
 
   ## POLICIES
@@ -68,6 +71,7 @@
             role: readonly
             password: password
         state: present
+      register: local_user_policy
 
     - name: Create BIOS Policy
       cisco.intersight.intersight_bios_policy:
@@ -81,6 +85,7 @@
         cpu_energy_performance: performance
         direct_cache_access: enabled
         state: present
+      register: bios_policy
 
     - name: Create Boot Order Policy
       cisco.intersight.intersight_boot_order_policy:
@@ -95,6 +100,7 @@
             device_name: Boot-Lun
             controller_slot: MRAID
         state: present
+      register: boot_order_policy
 
     - name: Create NTP Policy
       cisco.intersight.intersight_ntp_policy:
@@ -107,6 +113,7 @@
           - ntp.esl.cisco.com
         timezone: Europe/Lisbon
         state: present
+      register: ntp_policy
         
     - name: Create IMC Access Policy
       cisco.intersight.intersight_imc_access_policy:
@@ -118,6 +125,7 @@
         ip_pool: dc1-ip-pool
         vlan_id: 10
         state: present
+      register: imc_access_policy
 
     - name: Create Virtual Media Policy
       cisco.intersight.intersight_virtual_media_policy:
@@ -145,6 +153,7 @@
           remote_path: mnt/SHARE/ISOS/RHEL
           remote_file: RHEL10.img
         state: present
+      register: virtual_media_policy
 
 
   ## PROFILES
@@ -154,7 +163,7 @@
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        name: sp-server
+        name: server-profile
         target_platform: FIAttached
         description: Profile for Servers
         # assigned_server: 5e3b517d6176752d319a9999
@@ -166,32 +175,36 @@
         # storage_policy: storage
         # lan_connectivity_policy: sjc02-d23-lan
         state: present
+      register: server_profile
 
 
   ## TEMPLATES
 
-    - name: Create Template
+    - name: Create Profile Template
       cisco.intersight.intersight_rest_api:
         api_uri: "{{ intersight_endpoint }}"
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
-        resource_path: /ippool/Pools
+        resource_path: /server/ProfileTemplates
         api_body: {
-          "Name": "dc1-ip-pool",
-          "Description": "DC1 IP Pool",
-          "IpV4Config": {
-            "Netmask": "255.255.255.0",
-            "Gateway": "10.0.0.1",
-            "PrimaryDns": "8.8.8.8",
-            "SecondaryDns": "8.8.8.9"
-            },
-          "IpV4Blocks": [ 
+          "Name": "server-profile-template",
+          "Description": "Server Profile Template",
+          "TargetPlatform": "FIAttached"
+          "PolicyBucket": [
             {
-              "From": "10.0.0.2",
-              "Size": 100
+              "Moid": "{{ ntp_resp.api_response.Moid }}",
+              "ObjectType": "ntp.Policy"
+            },
+            {
+              "Moid": "{{ access_resp.api_response.Moid }}",
+              "ObjectType": "access.Policy"
             }
-            ],
-          "AssignmentOrder": "default"
+          ],
+          "UuidPool": {
+            "Moid": "{{ uuid_resp.api_response.Moid }}",
+            "ObjectType": "uuidpool.Pool"
+          }
         }
         state: present
+      register: server_profile_template
 
