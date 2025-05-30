@@ -34,8 +34,8 @@
         api_private_key: "{{ intersight_privatekey }}"
         api_key_id: "{{ intersight_apikeyid }}"
         resource_path: /ippool/Pools
-        query_params:
-          $filter: "Name eq 'dc1-ip-pool'"
+        # query_params:
+        #   $filter: "Name eq 'dc1-ip-pool'"
         api_body: {
           "Name": "dc1-ip-pool",
           "Description": "DC1 IP Pool",
@@ -167,5 +167,35 @@
         virtual_media_policy: virtual-media-policy
         # storage_policy: storage
         # lan_connectivity_policy: sjc02-d23-lan
+        state: present
+
+
+  ## TEMPLATES
+
+    - name: Create Template
+      cisco.intersight.intersight_rest_api:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        resource_path: /ippool/Pools
+        query_params:
+          $filter: "Name eq 'dc1-ip-pool'"
+        api_body: {
+          "Name": "dc1-ip-pool",
+          "Description": "DC1 IP Pool",
+          "IpV4Config": {
+            "Netmask": "255.255.255.0",
+            "Gateway": "10.0.0.1",
+            "PrimaryDns": "8.8.8.8",
+            "SecondaryDns": "8.8.8.9"
+            },
+          "IpV4Blocks": [ 
+            {
+              "From": "10.0.0.2",
+              "Size": 100
+            }
+            ],
+          "AssignmentOrder": "default"
+        }
         state: present
 
