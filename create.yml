@@ -180,13 +180,9 @@
 
   ## TEMPLATES
 
-    - debug:
-        var: ntp_policy
 
     - debug:
-        var: local_user_policy
-    - debug:
-        var: boot order_policy
+        var: boot_order_policy
 
     - debug:
         var: imc_access_policy
@@ -207,6 +203,10 @@
             {
               "Moid": "{{ ntp_policy.api_response.Moid }}",
               "ObjectType": "ntp.Policy"
+            },
+            {
+              "Moid": "{{ local_user_policy.api_response.Moid }}",
+              "ObjectType": "iam.EndPointUserRole"
             },
             {
               "Moid": "{{ local_user_policy.api_response.Moid }}",
