@@ -71,19 +71,19 @@
     #     state: present
     #   register: local_user_policy
 
-    - name: Create BIOS Policy
-      cisco.intersight.intersight_bios_policy:
-        api_uri: "{{ intersight_endpoint }}"
-        api_private_key: "{{ intersight_privatekey }}"
-        api_key_id: "{{ intersight_apikeyid }}"
-        name: "{{ bios_policy_name }}"
-        description: "{{ bios_policy_description }}"
-        processor_cstate: "{{ bios_policy_options.processor_cstate }}"
-        cdn_enable: "{{ bios_policy_options.cdn_enable }}"
-        cpu_energy_performance: "{{ bios_policy_options.cpu_energy_performance }}"
-        direct_cache_access: "{{ bios_policy_options.direct_cache_access }}"
-        state: present
-      register: bios_policy
+    # - name: Create BIOS Policy
+    #   cisco.intersight.intersight_bios_policy:
+    #     api_uri: "{{ intersight_endpoint }}"
+    #     api_private_key: "{{ intersight_privatekey }}"
+    #     api_key_id: "{{ intersight_apikeyid }}"
+    #     name: "{{ bios_policy_name }}"
+    #     description: "{{ bios_policy_description }}"
+    #     processor_cstate: "{{ bios_policy_options.processor_cstate }}"
+    #     cdn_enable: "{{ bios_policy_options.cdn_enable }}"
+    #     cpu_energy_performance: "{{ bios_policy_options.cpu_energy_performance }}"
+    #     direct_cache_access: "{{ bios_policy_options.direct_cache_access }}"
+    #     state: present
+    #   register: bios_policy
 
     - name: Create Boot Order Policy
       cisco.intersight.intersight_boot_order_policy:
