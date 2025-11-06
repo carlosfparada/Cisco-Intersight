@@ -97,41 +97,41 @@
     #     state: present
     #   register: boot_order_policy
 
-    - name: Create NTP Policy
-      cisco.intersight.intersight_ntp_policy:
-        api_uri: "{{ intersight_endpoint }}"
-        api_private_key: "{{ intersight_privatekey }}"
-        api_key_id: "{{ intersight_apikeyid }}"
-        name: "{{ ntp_policy_name }}"
-        description: "{{ ntp_policy_description }}"
-        ntp_servers: "{{ ntp_policy_servers }}" 
-        timezone: "{{ ntp_policy_timezone }}" 
-        state: present
-      register: ntp_policy
+    # - name: Create NTP Policy
+    #   cisco.intersight.intersight_ntp_policy:
+    #     api_uri: "{{ intersight_endpoint }}"
+    #     api_private_key: "{{ intersight_privatekey }}"
+    #     api_key_id: "{{ intersight_apikeyid }}"
+    #     name: "{{ ntp_policy_name }}"
+    #     description: "{{ ntp_policy_description }}"
+    #     ntp_servers: "{{ ntp_policy_servers }}" 
+    #     timezone: "{{ ntp_policy_timezone }}" 
+    #     state: present
+    #   register: ntp_policy
         
-    - name: Create IMC Access Policy
-      cisco.intersight.intersight_imc_access_policy:
-        api_uri: "{{ intersight_endpoint }}"
-        api_private_key: "{{ intersight_privatekey }}"
-        api_key_id: "{{ intersight_apikeyid }}"
-        name: "{{ imc_access_policy_name }}" 
-        description: "{{ imc_access_policy_description }}"
-        ip_pool: "{{ imc_access_policy_ip_pool }}"
-        vlan_id: "{{ imc_access_policy_vlan_id }}"
-        state: present
-      register: imc_access_policy
+    # - name: Create IMC Access Policy
+    #   cisco.intersight.intersight_imc_access_policy:
+    #     api_uri: "{{ intersight_endpoint }}"
+    #     api_private_key: "{{ intersight_privatekey }}"
+    #     api_key_id: "{{ intersight_apikeyid }}"
+    #     name: "{{ imc_access_policy_name }}" 
+    #     description: "{{ imc_access_policy_description }}"
+    #     ip_pool: "{{ imc_access_policy_ip_pool }}"
+    #     vlan_id: "{{ imc_access_policy_vlan_id }}"
+    #     state: present
+    #   register: imc_access_policy
 
-    - name: Create Virtual Media Policy
-      cisco.intersight.intersight_virtual_media_policy:
-        api_uri: "{{ intersight_endpoint }}"
-        api_private_key: "{{ intersight_privatekey }}"
-        api_key_id: "{{ intersight_apikeyid }}"
-        name: "{{ virtual_media_policy_name }}"
-        description: "{{ virtual_media_policy_description }}"
-        cdd_virtual_media: "{{ virtual_media_policy_cdd_virtual_media }}"
-        hdd_virtual_media: "{{ virtual_media_policy_hdd_virtual_media }}"
-        state: present
-      register: virtual_media_policy
+    # - name: Create Virtual Media Policy
+    #   cisco.intersight.intersight_virtual_media_policy:
+    #     api_uri: "{{ intersight_endpoint }}"
+    #     api_private_key: "{{ intersight_privatekey }}"
+    #     api_key_id: "{{ intersight_apikeyid }}"
+    #     name: "{{ virtual_media_policy_name }}"
+    #     description: "{{ virtual_media_policy_description }}"
+    #     cdd_virtual_media: "{{ virtual_media_policy_cdd_virtual_media }}"
+    #     hdd_virtual_media: "{{ virtual_media_policy_hdd_virtual_media }}"
+    #     state: present
+    #   register: virtual_media_policy
 
 
   ## PROFILES
