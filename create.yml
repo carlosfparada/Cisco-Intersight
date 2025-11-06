@@ -60,100 +60,100 @@
 
   ## POLICIES
 
-    # - name: Create Local User Policy
-    #   cisco.intersight.intersight_local_user_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: "{{ local_user_policy_name }}"
-    #     description: "{{ local_user_policy_description }}"
-    #     local_users: "{{ local_user_policy_local_users }}"
-    #     state: present
-    #   register: local_user_policy
+    - name: Create Local User Policy
+      cisco.intersight.intersight_local_user_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: "{{ local_user_policy_name }}"
+        description: "{{ local_user_policy_description }}"
+        local_users: "{{ local_user_policy_local_users }}"
+        state: present
+      register: local_user_policy
 
-    # - name: Create BIOS Policy
-    #   cisco.intersight.intersight_bios_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: "{{ bios_policy_name }}"
-    #     description: "{{ bios_policy_description }}"
-    #     processor_cstate: "{{ bios_policy_options.processor_cstate }}"
-    #     cdn_enable: "{{ bios_policy_options.cdn_enable }}"
-    #     cpu_energy_performance: "{{ bios_policy_options.cpu_energy_performance }}"
-    #     direct_cache_access: "{{ bios_policy_options.direct_cache_access }}"
-    #     state: present
-    #   register: bios_policy
+    - name: Create BIOS Policy
+      cisco.intersight.intersight_bios_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: "{{ bios_policy_name }}"
+        description: "{{ bios_policy_description }}"
+        processor_cstate: "{{ bios_policy_options.processor_cstate }}"
+        cdn_enable: "{{ bios_policy_options.cdn_enable }}"
+        cpu_energy_performance: "{{ bios_policy_options.cpu_energy_performance }}"
+        direct_cache_access: "{{ bios_policy_options.direct_cache_access }}"
+        state: present
+      register: bios_policy
 
-    # - name: Create Boot Order Policy
-    #   cisco.intersight.intersight_boot_order_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: "{{ boot_order_policy_name }}"
-    #     description: "{{ boot_order_policy_description }}"
-    #     configured_boot_mode: "{{ boot_order_policy_configured_boot_mode }}"
-    #     boot_devices: "{{ boot_order_policy_boot_devices }}"
-    #     state: present
-    #   register: boot_order_policy
+    - name: Create Boot Order Policy
+      cisco.intersight.intersight_boot_order_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: "{{ boot_order_policy_name }}"
+        description: "{{ boot_order_policy_description }}"
+        configured_boot_mode: "{{ boot_order_policy_configured_boot_mode }}"
+        boot_devices: "{{ boot_order_policy_boot_devices }}"
+        state: present
+      register: boot_order_policy
 
-    # - name: Create NTP Policy
-    #   cisco.intersight.intersight_ntp_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: "{{ ntp_policy_name }}"
-    #     description: "{{ ntp_policy_description }}"
-    #     ntp_servers: "{{ ntp_policy_servers }}" 
-    #     timezone: "{{ ntp_policy_timezone }}" 
-    #     state: present
-    #   register: ntp_policy
+    - name: Create NTP Policy
+      cisco.intersight.intersight_ntp_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: "{{ ntp_policy_name }}"
+        description: "{{ ntp_policy_description }}"
+        ntp_servers: "{{ ntp_policy_servers }}" 
+        timezone: "{{ ntp_policy_timezone }}" 
+        state: present
+      register: ntp_policy
         
-    # - name: Create IMC Access Policy
-    #   cisco.intersight.intersight_imc_access_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: "{{ imc_access_policy_name }}" 
-    #     description: "{{ imc_access_policy_description }}"
-    #     ip_pool: "{{ imc_access_policy_ip_pool }}"
-    #     vlan_id: "{{ imc_access_policy_vlan_id }}"
-    #     state: present
-    #   register: imc_access_policy
+    - name: Create IMC Access Policy
+      cisco.intersight.intersight_imc_access_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: "{{ imc_access_policy_name }}" 
+        description: "{{ imc_access_policy_description }}"
+        ip_pool: "{{ imc_access_policy_ip_pool }}"
+        vlan_id: "{{ imc_access_policy_vlan_id }}"
+        state: present
+      register: imc_access_policy
 
-    # - name: Create Virtual Media Policy
-    #   cisco.intersight.intersight_virtual_media_policy:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: "{{ virtual_media_policy_name }}"
-    #     description: "{{ virtual_media_policy_description }}"
-    #     cdd_virtual_media: "{{ virtual_media_policy_cdd_virtual_media }}"
-    #     hdd_virtual_media: "{{ virtual_media_policy_hdd_virtual_media }}"
-    #     state: present
-    #   register: virtual_media_policy
+    - name: Create Virtual Media Policy
+      cisco.intersight.intersight_virtual_media_policy:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: "{{ virtual_media_policy_name }}"
+        description: "{{ virtual_media_policy_description }}"
+        cdd_virtual_media: "{{ virtual_media_policy_cdd_virtual_media }}"
+        hdd_virtual_media: "{{ virtual_media_policy_hdd_virtual_media }}"
+        state: present
+      register: virtual_media_policy
 
 
   ## PROFILES
 
-    # - name: Create Server Profile
-    #   cisco.intersight.intersight_server_profile:
-    #     api_uri: "{{ intersight_endpoint }}"
-    #     api_private_key: "{{ intersight_privatekey }}"
-    #     api_key_id: "{{ intersight_apikeyid }}"
-    #     name: "{{ server_profile_name }}"
-    #     description: "{{ server_profile_description }}"
-    #     target_platform: "{{ server_profile_target_platform }}"
-    #     # assigned_server: "{{ server_profile_assigned_server }}"
-    #     boot_order_policy: "{{ server_profile_boot_order_policy }}"
-    #     imc_access_policy: "{{ server_profile_imc_access_policy }}"
-    #     local_user_policy: "{{ server_profile_local_user_policy }}"
-    #     ntp_policy: "{{ server_profile_ntp_policy }}"
-    #     virtual_media_policy: "{{ server_profile_virtual_media_policy }}"
-    #     # storage_policy: "{{ server_profile_storage_policy }}"
-    #     # lan_connectivity_policy: "{{ server_profile_lan_connectivity_policy }}"
-    #     state: present
-    #   register: server_profile
+    - name: Create Server Profile
+      cisco.intersight.intersight_server_profile:
+        api_uri: "{{ intersight_endpoint }}"
+        api_private_key: "{{ intersight_privatekey }}"
+        api_key_id: "{{ intersight_apikeyid }}"
+        name: "{{ server_profile_name }}"
+        description: "{{ server_profile_description }}"
+        target_platform: "{{ server_profile_target_platform }}"
+        # assigned_server: "{{ server_profile_assigned_server }}"
+        boot_order_policy: "{{ server_profile_boot_order_policy }}"
+        imc_access_policy: "{{ server_profile_imc_access_policy }}"
+        local_user_policy: "{{ server_profile_local_user_policy }}"
+        ntp_policy: "{{ server_profile_ntp_policy }}"
+        virtual_media_policy: "{{ server_profile_virtual_media_policy }}"
+        # storage_policy: "{{ server_profile_storage_policy }}"
+        # lan_connectivity_policy: "{{ server_profile_lan_connectivity_policy }}"
+        state: present
+      register: server_profile
 
 
   ## TEMPLATES
